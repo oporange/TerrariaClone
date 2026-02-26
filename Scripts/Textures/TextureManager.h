@@ -3,7 +3,7 @@
 namespace Textures {
 
 
-	SDL_Texture* TextureLoad(char* file)
+	SDL_Texture* TextureLoad(const char* file)
 	{
 
 		SDL_Surface* surf = SDL_LoadBMP(file);
@@ -12,7 +12,15 @@ namespace Textures {
 
 		SDL_FreeSurface(surf);
 
+		std::cout << "loaded: " << file << std::endl;
+
 		return texture;
+	}
+
+	namespace Tiles {
+
+		SDL_Texture* Dirt = TextureLoad("Textures/Tiles/Dirt.bmp");
+
 	}
 
 }

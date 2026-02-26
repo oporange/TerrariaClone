@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Textures">
       <UniqueIdentifier>{fd67b979-f413-4891-afac-3337a7f6f7f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Textures">
+      <UniqueIdentifier>{b3ac67a4-bb43-40cd-890a-528faca12622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Textures\Tiles">
+      <UniqueIdentifier>{76cb9a3e-5fab-411b-8516-c17bdfa2cc69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
