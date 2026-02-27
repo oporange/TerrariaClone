@@ -17,17 +17,21 @@ int main()
 
 	Textures::LoadTiles();
 
-	TileGrid::WorldHeight = 10;
-	TileGrid::WorldWidth = 10;
+	Input::Init();
+
+	TileGrid::WorldHeight = 200;
+	TileGrid::WorldWidth = 500;
 	TileGrid::SetWorldSize();
 
 	GenerateTerrain();
-	DrawGame();
 
 	while (GameRunning)
 	{
+		SDL_RenderClear(Renderer);
 
 		Input::PollInput();
+
+		DrawGame();
 
 
 		SDL_RenderPresent(Renderer);

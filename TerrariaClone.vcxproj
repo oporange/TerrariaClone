@@ -120,6 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,6 +132,8 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Scripts\Camera.h" />
+    <ClInclude Include="Scripts\External\PerlinNoise.hpp" />
     <ClInclude Include="Scripts\GameDraw.h" />
     <ClInclude Include="Scripts\Includes.h" />
     <ClInclude Include="Scripts\Textures\TextureManager.h" />

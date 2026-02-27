@@ -13,24 +13,23 @@ namespace Textures {
 
 		SDL_FreeSurface(surf);
 
-		std::cout << "loaded: " << file << std::endl;
-		std::cout << SDL_GetError() << std::endl;
-
 		return texture;
 	}
 
 
 	void LoadTiles()
 	{
+		Tiles.insert({ "air", SDL_CreateTexture(Renderer, 0, 0, 16, 16) });
 
 		Tiles.insert({"Dirt", TextureLoad("Textures\\Tiles\\Dirt.bmp")});
+		Tiles.insert({"Grass", TextureLoad("Textures\\Tiles\\Grass.bmp") });
+		Tiles.insert({"Stone", TextureLoad("Textures\\Tiles\\Stone.bmp") });
+		Tiles.insert({"TreeLog", TextureLoad("Textures\\Tiles\\TreeLog.bmp") });
 
 	}
 
 
 
 
-
-
-	std::string TileLookUp[] = {"air", "Dirt"};
+	std::string TileLookUp[] = {"air", "Dirt", "Grass", "Stone", "TreeLog"};
 }

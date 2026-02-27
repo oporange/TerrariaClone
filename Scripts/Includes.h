@@ -1,5 +1,9 @@
 #pragma once
 
+#include "External/PerlinNoise.hpp"
+
+#include "Camera.h"
+
 #include "Window/WindowManager.h"
 #include "Window/WindowInput.h"
 
