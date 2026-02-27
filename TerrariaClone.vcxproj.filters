@@ -25,6 +25,9 @@
     <Filter Include="Resource Files\Textures\Tiles">
       <UniqueIdentifier>{76cb9a3e-5fab-411b-8516-c17bdfa2cc69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{ec4cce2d-e4b0-4a76-95f1-016bb979a3fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -44,5 +47,19 @@
     <ClInclude Include="Scripts\Textures\TextureManager.h">
       <Filter>Header Files\Textures</Filter>
     </ClInclude>
+    <ClInclude Include="Scripts\TileGrid.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\WorldGen.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\GameDraw.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\Tiles\Dirt.bmp">
+      <Filter>Resource Files\Textures\Tiles</Filter>
+    </Image>
   </ItemGroup>
 </Project>

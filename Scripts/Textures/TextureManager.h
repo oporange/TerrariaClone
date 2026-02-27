@@ -2,6 +2,7 @@
 
 namespace Textures {
 
+	std::unordered_map<std::string, SDL_Texture*> Tiles;
 
 	SDL_Texture* TextureLoad(const char* file)
 	{
@@ -13,14 +14,23 @@ namespace Textures {
 		SDL_FreeSurface(surf);
 
 		std::cout << "loaded: " << file << std::endl;
+		std::cout << SDL_GetError() << std::endl;
 
 		return texture;
 	}
 
-	namespace Tiles {
 
-		SDL_Texture* Dirt = TextureLoad("Textures/Tiles/Dirt.bmp");
+	void LoadTiles()
+	{
+
+		Tiles.insert({"Dirt", TextureLoad("Textures\\Tiles\\Dirt.bmp")});
 
 	}
 
+
+
+
+
+
+	std::string TileLookUp[] = {"air", "Dirt"};
 }
