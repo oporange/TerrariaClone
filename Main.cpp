@@ -10,6 +10,7 @@
 
 static bool GameRunning = true;
 
+
 int main() 
 {
 
@@ -24,9 +25,10 @@ int main()
 	TileGrid::SetWorldSize();
 
 	GenerateTerrain();
-
 	while (GameRunning)
 	{
+		//std::cout << "Drawing" << std::endl;
+
 		SDL_RenderClear(Renderer);
 
 		Input::PollInput();

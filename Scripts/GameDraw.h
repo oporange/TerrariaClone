@@ -32,7 +32,10 @@ void DrawGame()
 
 			SDL_Rect r = { screenX, screenY, 16, 16 };
 
-			SDL_Texture* texture = Textures::Tiles.at(Textures::TileLookUp[TileGrid::TileGrid[TileX][TileY]]);
+			SDL_Texture* texture = Textures::Tiles.at(Textures::TileLookUp[TileGrid::TileGrid[TileX][TileY].tileID]);
+
+			SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+			SDL_SetTextureAlphaMod(texture, TileGrid::TileGrid[TileX][TileY].LightLevel * 32);
 
 			SDL_RenderCopy(Renderer, texture, nullptr, &r);
 

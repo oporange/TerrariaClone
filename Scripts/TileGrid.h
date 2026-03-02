@@ -1,5 +1,11 @@
 #pragma once
 
+struct TileData
+{
+	int tileID;
+	int LightLevel; // 0-7
+};
+
 namespace TileGrid
 {
 	int WorldWidth;
@@ -8,7 +14,7 @@ namespace TileGrid
 	int CenterX;
 	int CenterY;
 
-	std::vector<std::vector<int>> TileGrid;
+	std::vector<std::vector<TileData>> TileGrid;
 
 	void SetWorldSize()
 	{

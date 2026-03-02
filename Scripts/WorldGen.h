@@ -19,31 +19,58 @@ void GenerateTerrain()
 
 			float CavesGen = perlin.octave2D_01((x * 0.03), (y * 0.03), 2);
 
-			TileGrid::TileGrid[x][y] = 1;
+			TileGrid::TileGrid[x][y].tileID = 1;
 
 			if (y >= GroundHeight - TreeHeight && y < GroundHeight && Tree > 0.62f)
 			{
-				TileGrid::TileGrid[x][y] = 4;
+				TileGrid::TileGrid[x][y].tileID = 4;
 			}
 			else if (y == GroundHeight)
 			{
-				TileGrid::TileGrid[x][y] = 2;
+				TileGrid::TileGrid[x][y].tileID = 2;
 			}
 			else if (y > GroundHeight && y < StoneHeight)
 			{
-				TileGrid::TileGrid[x][y] = 1;
+				TileGrid::TileGrid[x][y].tileID = 1;
 			}
 			else if (y >= StoneHeight && CavesGen > 0.3f)
 			{
-				TileGrid::TileGrid[x][y] = 3;
+				TileGrid::TileGrid[x][y].tileID = 3;
 			}
 
 			else {
-				TileGrid::TileGrid[x][y] = 0;
+				TileGrid::TileGrid[x][y].tileID = 0;
 			}
 
 		}
 	}
+
+	for (int x = 0; x < TileGrid::WorldWidth; x++) {
+		for (int y = 0; y < TileGrid::WorldHeight; y++)
+		{
+			TileData tile = TileGrid::TileGrid[x][y];
+
+			if (tile.tileID == 0)
+			{
+				tile.LightLevel = 7;
+			}
+			else 
+			{
+
+				for (int i = 1; i <= 7; i++)
+				{
+					if (TileGrid::TileGrid[x][y - i].tileID == 0 || TileGrid::TileGrid[x][y - i].tileID == 4) {
+						tile.LightLevel = 7 - i;
+						break;
+					}
+				}
+			}
+
+
+			TileGrid::TileGrid[x][y] = tile;
+		}
+	}
+
 
 
 }
