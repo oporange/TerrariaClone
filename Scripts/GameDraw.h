@@ -1,8 +1,25 @@
 #pragma once
 
+SDL_Texture* SkyTexture;
+
+void DrawInit()
+{
+	SkyTexture = SDL_CreateTexture(Renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, WindowWidth, WindowHeight);
+
+	SDL_SetRenderTarget(Renderer, SkyTexture);
+
+	SDL_SetRenderDrawColor(Renderer, 16, 206, 227, 255); // sky color
+	SDL_Rect r = { 0,0, WindowWidth, WindowHeight };
+	SDL_RenderFillRect(Renderer, &r);
+
+	SDL_SetRenderTarget(Renderer, NULL);
+
+}
 
 void DrawGame()
 {
+	SDL_Rect sky = { 0,0,WindowWidth, WindowHeight };
+	SDL_RenderCopy(Renderer, SkyTexture, nullptr, &sky);
 
 	int DrawWidth = WindowWidth / 16 + 2;
 	int DrawHeight = WindowHeight / 16 + 2;
@@ -30,9 +47,15 @@ void DrawGame()
 			int screenX = worldX - Camera::CameraX + (WindowWidth / 2);
 			int screenY = worldY - Camera::CameraY + (WindowHeight / 2);
 
+			SDL_Texture* texture = Textures::Tiles.at(Textures::TileLookUp[TileGrid::TileGrid[TileX][TileY].tileID]);
 			SDL_Rect r = { screenX, screenY, 16, 16 };
 
-			SDL_Texture* texture = Textures::Tiles.at(Textures::TileLookUp[TileGrid::TileGrid[TileX][TileY].tileID]);
+			if (texture == nullptr) { continue; }
+
+			//SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 255);
+			//SDL_RenderFillRect(Renderer, &r);
+
+			if (TileGrid::TileGrid[TileX][TileY].LightLevel == 0) { continue; }
 
 			SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 			SDL_SetTextureAlphaMod(texture, TileGrid::TileGrid[TileX][TileY].LightLevel * 32);

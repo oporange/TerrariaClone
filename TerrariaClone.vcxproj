@@ -143,7 +143,11 @@
     <ClInclude Include="Scripts\WorldGen.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Textures\Tiles\Air.bmp" />
     <Image Include="Textures\Tiles\Dirt.bmp" />
+    <Image Include="Textures\Tiles\Grass.bmp" />
+    <Image Include="Textures\Tiles\Stone.bmp" />
+    <Image Include="Textures\Tiles\TreeLog.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

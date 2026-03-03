@@ -20,6 +20,8 @@ int main()
 
 	Input::Init();
 
+	DrawInit();
+
 	TileGrid::WorldHeight = 200;
 	TileGrid::WorldWidth = 500;
 	TileGrid::SetWorldSize();

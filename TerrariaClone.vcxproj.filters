@@ -56,9 +56,27 @@
     <ClInclude Include="Scripts\GameDraw.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Scripts\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\External\PerlinNoise.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Textures\Tiles\Dirt.bmp">
+      <Filter>Resource Files\Textures\Tiles</Filter>
+    </Image>
+    <Image Include="Textures\Tiles\Air.bmp">
+      <Filter>Resource Files\Textures\Tiles</Filter>
+    </Image>
+    <Image Include="Textures\Tiles\Grass.bmp">
+      <Filter>Resource Files\Textures\Tiles</Filter>
+    </Image>
+    <Image Include="Textures\Tiles\Stone.bmp">
+      <Filter>Resource Files\Textures\Tiles</Filter>
+    </Image>
+    <Image Include="Textures\Tiles\TreeLog.bmp">
       <Filter>Resource Files\Textures\Tiles</Filter>
     </Image>
   </ItemGroup>

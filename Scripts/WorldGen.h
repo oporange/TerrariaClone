@@ -57,7 +57,7 @@ void GenerateTerrain()
 			else 
 			{
 
-				for (int i = 1; i <= 7; i++)
+				for (int i = 0; i <= 7; i++)
 				{
 					if (TileGrid::TileGrid[x][y - i].tileID == 0 || TileGrid::TileGrid[x][y - i].tileID == 4) {
 						tile.LightLevel = 7 - i;

@@ -19,7 +19,7 @@ namespace Textures {
 
 	void LoadTiles()
 	{
-		Tiles.insert({ "air", TextureLoad("Textures\\Tiles\\Air.bmp") });
+		Tiles.insert({ "air", nullptr });
 
 		Tiles.insert({"Dirt", TextureLoad("Textures\\Tiles\\Dirt.bmp")});
 		Tiles.insert({"Grass", TextureLoad("Textures\\Tiles\\Grass.bmp") });
