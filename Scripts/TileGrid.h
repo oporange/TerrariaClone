@@ -2,7 +2,7 @@
 
 struct TileData
 {
-	int tileID;
+	int tileID; // id for tile referenced in texture mananger
 	int LightLevel; // 0-7
 };
 

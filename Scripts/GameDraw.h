@@ -50,15 +50,18 @@ void DrawGame()
 			SDL_Texture* texture = Textures::Tiles.at(Textures::TileLookUp[TileGrid::TileGrid[TileX][TileY].tileID]);
 			SDL_Rect r = { screenX, screenY, 16, 16 };
 
-			if (texture == nullptr) { continue; }
+			if (texture == nullptr) { continue; } // if no texture - aka air, skip rendering
 
-			//SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 255);
-			//SDL_RenderFillRect(Renderer, &r);
+			if (TileGrid::TileGrid[TileX][TileY].LightLevel == 0) { // if tile is fully black, render black and skip draw call
+				SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 255);
+				SDL_RenderFillRect(Renderer, &r);
+				continue; 
+			}
 
-			if (TileGrid::TileGrid[TileX][TileY].LightLevel == 0) { continue; }
+			int Light = TileGrid::TileGrid[TileX][TileY].LightLevel * 32;
 
 			SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-			SDL_SetTextureAlphaMod(texture, TileGrid::TileGrid[TileX][TileY].LightLevel * 32);
+			SDL_SetTextureColorMod(texture, Light, Light, Light); // mods texture colors by the light level of the tile - fades to black
 
 			SDL_RenderCopy(Renderer, texture, nullptr, &r);
 
