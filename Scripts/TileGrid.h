@@ -3,7 +3,8 @@
 struct TileData
 {
 	int tileID; // id for tile referenced in texture mananger
-	int LightLevel; // 0-7
+	int LightLevel = 0; // 0-8
+	bool LightEmitter = false; 
 };
 
 namespace TileGrid

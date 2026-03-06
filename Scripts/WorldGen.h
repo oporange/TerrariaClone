@@ -7,6 +7,7 @@ void GenerateTerrain()
 
 	const siv::PerlinNoise perlin{ seed };
 
+	// set tile loop
 	for (int x = 0; x < TileGrid::WorldWidth; x++) {
 		for (int y = 0; y < TileGrid::WorldHeight; y++)
 		{
@@ -38,30 +39,46 @@ void GenerateTerrain()
 				TileGrid::TileGrid[x][y].tileID = 3;
 			}
 
-			else {
+			else { //  set tile to air
 				TileGrid::TileGrid[x][y].tileID = 0;
+				TileGrid::TileGrid[x][y].LightEmitter = true;
 			}
 
 		}
 	}
 
+	// update tile lighting loop
 	for (int x = 0; x < TileGrid::WorldWidth; x++) {
 		for (int y = 0; y < TileGrid::WorldHeight; y++)
 		{
 			TileData tile = TileGrid::TileGrid[x][y];
 
-			if (tile.tileID == 0)
-			{
-				tile.LightLevel = 7;
-			}
-			else 
-			{
+			// new lighting for all directions
 
-				for (int i = 0; i <= 7; i++)
-				{
-					if (TileGrid::TileGrid[x][y - i].tileID == 0 || TileGrid::TileGrid[x][y - i].tileID == 4) {
-						tile.LightLevel = 7 - i;
-						break;
+			if (tile.LightEmitter)
+			{
+				for (int RelX = -8; RelX <= 8; RelX++) {
+					for (int RelY = -8; RelY <= 8; RelY++)
+					{
+						if (x + RelX < 0 || y + RelY < 0) { continue; }
+						if (x + RelX > TileGrid::WorldWidth-1 || y + RelY > TileGrid::WorldHeight-1) { continue; }
+
+
+						TileData reference = TileGrid::TileGrid[x + RelX][y + RelY];
+
+						if (reference.LightEmitter) { continue; }
+
+						float LightLevel = 0;
+
+						float Xdist = abs(RelX);
+						float Ydist = abs(RelY);
+
+						float Distance = sqrt((Xdist*Xdist) + (Ydist * Ydist));
+						LightLevel = 8 - ((Distance / 11.3137085) * 8);
+
+						if (reference.LightLevel < LightLevel) { reference.LightLevel = LightLevel; }
+
+						TileGrid::TileGrid[x + RelX][y + RelY] = reference;
 					}
 				}
 			}

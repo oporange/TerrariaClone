@@ -58,7 +58,7 @@ void DrawGame()
 				continue; 
 			}
 
-			int Light = TileGrid::TileGrid[TileX][TileY].LightLevel * 32;
+			int Light = TileGrid::TileGrid[TileX][TileY].LightLevel * 32 - 1;
 
 			SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 			SDL_SetTextureColorMod(texture, Light, Light, Light); // mods texture colors by the light level of the tile - fades to black
