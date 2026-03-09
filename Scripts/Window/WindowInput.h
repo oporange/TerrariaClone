@@ -3,6 +3,7 @@
 extern bool GameRunning;
 
 std::unordered_map<int, bool> KeysPressed;
+bool MouseButtons[3];
 
 namespace Input {
 
@@ -39,6 +40,15 @@ namespace Input {
 				if (event.key.keysym.sym == SDLK_d) { KeysPressed.at(SDLK_d) = false; }
 
 			}
+
+			else if (event.type == SDL_MOUSEBUTTONDOWN)
+			{
+				MouseButtons[0] = true;
+			}
+			else if (event.type == SDL_MOUSEBUTTONUP)
+			{
+				MouseButtons[0] = false;
+			}
 		}
 
 		// process inputs
@@ -47,6 +57,16 @@ namespace Input {
 		if (KeysPressed.at(SDLK_a)) { Camera::CameraX -= 1; }
 		if (KeysPressed.at(SDLK_s)) { Camera::CameraY += 1; }
 		if (KeysPressed.at(SDLK_d)) { Camera::CameraX += 1; }
+
+		if (MouseButtons[0]) 
+		{
+			int x; int y;
+			SDL_GetMouseState(&x, &y);
+
+
+			std::pair<int, int> pos = TileGrid::PixelToTile(x, y);
+			TileInteractions::BreakTile(pos.first, pos.second);
+		}
 
 	}
 

@@ -5,10 +5,13 @@
 #include "Camera.h"
 
 #include "Window/WindowManager.h"
-#include "Window/WindowInput.h"
 
 #include "Textures/TextureManager.h"
 
 #include "TileGrid.h"
+#include "Lighting.h"
 #include "WorldGen.h"
 #include "GameDraw.h"
+#include "TileInteractions.h"
+
+#include "Window/WindowInput.h"

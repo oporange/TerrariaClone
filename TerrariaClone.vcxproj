@@ -136,8 +136,10 @@
     <ClInclude Include="Scripts\External\PerlinNoise.hpp" />
     <ClInclude Include="Scripts\GameDraw.h" />
     <ClInclude Include="Scripts\Includes.h" />
+    <ClInclude Include="Scripts\Lighting.h" />
     <ClInclude Include="Scripts\Textures\TextureManager.h" />
     <ClInclude Include="Scripts\TileGrid.h" />
+    <ClInclude Include="Scripts\TileInteractions.h" />
     <ClInclude Include="Scripts\Window\WindowInput.h" />
     <ClInclude Include="Scripts\Window\WindowManager.h" />
     <ClInclude Include="Scripts\WorldGen.h" />
