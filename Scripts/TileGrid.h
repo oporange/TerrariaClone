@@ -9,11 +9,9 @@ struct TileData
 
 namespace TileGrid
 {
-	int WorldWidth;
-	int WorldHeight;
+	int WorldWidth;	int WorldHeight;
 
-	int CenterX;
-	int CenterY;
+	int CenterX;	int CenterY;
 
 	std::vector<std::vector<TileData>> TileGrid;
 

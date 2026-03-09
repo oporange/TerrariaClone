@@ -31,6 +31,9 @@
     <Filter Include="Header Files\External">
       <UniqueIdentifier>{c2f24339-8901-40c1-b69b-cf291c21730d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\Tiles">
+      <UniqueIdentifier>{3d53e5ad-2d66-4acf-92a4-66c8135904fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -50,9 +53,6 @@
     <ClInclude Include="Scripts\Textures\TextureManager.h">
       <Filter>Header Files\Textures</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\TileGrid.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Scripts\WorldGen.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
@@ -68,8 +68,11 @@
     <ClInclude Include="Scripts\External\PerlinNoise.hpp">
       <Filter>Header Files\External</Filter>
     </ClInclude>
+    <ClInclude Include="Scripts\TileGrid.h">
+      <Filter>Header Files\Game\Tiles</Filter>
+    </ClInclude>
     <ClInclude Include="Scripts\TileInteractions.h">
-      <Filter>Header Files\Game</Filter>
+      <Filter>Header Files\Game\Tiles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
