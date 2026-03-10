@@ -2,19 +2,25 @@
 
 extern bool GameRunning;
 
-std::unordered_map<int, bool> KeysPressed;
 bool MouseButtons[3];
 
 
 namespace Input {
 
+	class KeyData
+	{
+	public:
+		bool IsPressed;
+		bool WasPressedThisFrame;
+
+	};
+	KeyData Keys[512] = { KeyData{} };
+
+
+
 	SDL_Event event;
 
 	void Init() {
-		KeysPressed.insert({ SDLK_w, false });
-		KeysPressed.insert({ SDLK_a, false });
-		KeysPressed.insert({ SDLK_s, false });
-		KeysPressed.insert({ SDLK_d, false });
 
 	}
 
@@ -28,19 +34,12 @@ namespace Input {
 
 			else if (event.type == SDL_KEYDOWN)
 			{
-				if (event.key.keysym.sym == SDLK_w) { KeysPressed.at(SDLK_w) = true; }
-				if (event.key.keysym.sym == SDLK_a) { KeysPressed.at(SDLK_a) = true; }
-				if (event.key.keysym.sym == SDLK_s) { KeysPressed.at(SDLK_s) = true; }
-				if (event.key.keysym.sym == SDLK_d) { KeysPressed.at(SDLK_d) = true; }
+				Keys[event.key.keysym.sym].IsPressed = true;
 			}
 
 			else if (event.type == SDL_KEYUP)
 			{
-				if (event.key.keysym.sym == SDLK_w) { KeysPressed.at(SDLK_w) = false; }
-				if (event.key.keysym.sym == SDLK_a) { KeysPressed.at(SDLK_a) = false; }
-				if (event.key.keysym.sym == SDLK_s) { KeysPressed.at(SDLK_s) = false; }
-				if (event.key.keysym.sym == SDLK_d) { KeysPressed.at(SDLK_d) = false; }
-
+				Keys[event.key.keysym.sym].IsPressed = false;
 			}
 
 			else if (event.type == SDL_MOUSEBUTTONDOWN)
@@ -54,11 +53,6 @@ namespace Input {
 		}
 
 		// process inputs
-
-		if (KeysPressed.at(SDLK_w)) { Camera::CameraY -= 1; }
-		if (KeysPressed.at(SDLK_a)) { Camera::CameraX -= 1; }
-		if (KeysPressed.at(SDLK_s)) { Camera::CameraY += 1; }
-		if (KeysPressed.at(SDLK_d)) { Camera::CameraX += 1; }
 
 		if (MouseButtons[0]) 
 		{

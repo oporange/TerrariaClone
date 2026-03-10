@@ -10,6 +10,7 @@
 
 static bool GameRunning = true;
 
+Player p;
 
 int main() 
 {
@@ -34,6 +35,8 @@ int main()
 		SDL_RenderClear(Renderer);
 
 		Input::PollInput();
+
+		p.Update();
 
 		DrawGame();
 
