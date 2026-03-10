@@ -22,8 +22,8 @@ int main()
 
 	DrawInit();
 
-	TileGrid::WorldHeight = 200;
-	TileGrid::WorldWidth = 500;
+	TileGrid::WorldHeight = 1000;
+	TileGrid::WorldWidth = 2000;
 	TileGrid::SetWorldSize();
 
 	GenerateTerrain();

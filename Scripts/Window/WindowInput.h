@@ -5,6 +5,7 @@ extern bool GameRunning;
 std::unordered_map<int, bool> KeysPressed;
 bool MouseButtons[3];
 
+
 namespace Input {
 
 	SDL_Event event;
@@ -14,6 +15,7 @@ namespace Input {
 		KeysPressed.insert({ SDLK_a, false });
 		KeysPressed.insert({ SDLK_s, false });
 		KeysPressed.insert({ SDLK_d, false });
+
 	}
 
 	void PollInput() 

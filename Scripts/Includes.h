@@ -1,4 +1,5 @@
 #pragma once
+#include <functional>
 
 #include "External/PerlinNoise.hpp"
 
@@ -15,3 +16,6 @@
 #include "TileInteractions.h"
 
 #include "Window/WindowInput.h"
+
+#include "Entity.h"
+#include "Player.h"
