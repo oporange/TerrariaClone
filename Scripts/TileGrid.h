@@ -23,9 +23,6 @@ namespace TileGrid
 
 		CenterX = WorldWidth / 2;
 		CenterY = WorldHeight / 2;
-
-		Camera::CameraX = TileGrid::CenterX * 16;
-		Camera::CameraY = TileGrid::CenterY * 16;
 	}
 
 	std::pair<int, int> PixelToTile(int x, int y)

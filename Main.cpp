@@ -10,14 +10,12 @@
 
 static bool GameRunning = true;
 
-Player p;
-
 int main() 
 {
 
 	Game_Window::WindowInit();
 
-	Textures::LoadTiles();
+	Textures::LoadAll();
 
 	Input::Init();
 
@@ -26,6 +24,10 @@ int main()
 	TileGrid::WorldHeight = 1000;
 	TileGrid::WorldWidth = 2000;
 	TileGrid::SetWorldSize();
+
+	Player p;
+	p.Init();
+	p.Sprite = Textures::Sprites.at("Player");
 
 	GenerateTerrain();
 	while (GameRunning)
@@ -36,9 +38,11 @@ int main()
 
 		Input::PollInput();
 
-		p.Update();
 
 		DrawGame();
+
+		p.Update();
+		p.Draw();
 
 
 		SDL_RenderPresent(Renderer);

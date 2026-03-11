@@ -3,6 +3,7 @@
 namespace Textures {
 
 	std::unordered_map<std::string, SDL_Texture*> Tiles;
+	std::unordered_map<std::string, SDL_Texture*> Sprites;
 
 	SDL_Texture* TextureLoad(const char* file)
 	{
@@ -26,6 +27,19 @@ namespace Textures {
 		Tiles.insert({"Stone", TextureLoad("Textures\\Tiles\\Stone.bmp") });
 		Tiles.insert({"TreeLog", TextureLoad("Textures\\Tiles\\TreeLog.bmp") });
 
+	}
+
+	void LoadSprites()
+	{
+		Sprites.insert({ "Player", TextureLoad("Textures\\Sprites\\Player\\Player.bmp") });
+
+	
+	}
+
+	void LoadAll()
+	{
+		LoadTiles();
+		LoadSprites();
 	}
 
 
