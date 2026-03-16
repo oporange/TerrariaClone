@@ -6,6 +6,8 @@ public:
 
 	void Init()
 	{
+		this->rigidbody = RigidBody{ 16, 32 };
+
 		this->PosX = TileGrid::CenterX * 16;
 		this->PosY = TileGrid::CenterY * 16;
 		Camera::CameraX = this->PosX;
@@ -15,8 +17,8 @@ public:
 	void Draw()
 	{
 		SDL_Rect r = { 
-			Camera::CameraX - PosX, 
-			Camera::CameraY - PosY, 
+			Camera::CameraX - PosX + WindowWidth / 2,
+			Camera::CameraY - PosY + WindowHeight / 2,
 			16, 
 			32 };
 
@@ -25,6 +27,7 @@ public:
 
 	void Update()
 	{
+		this->Simulate();
 
 		if (Input::Keys[SDLK_w].IsPressed) { this->PosY -= 1; }
 		if (Input::Keys[SDLK_a].IsPressed) { this->PosX -= 1; }

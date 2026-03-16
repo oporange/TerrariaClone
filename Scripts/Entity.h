@@ -16,9 +16,28 @@ public:
 	}
 };
 
+const float Gravity = 0.01f;
+
+struct RigidBody {
+	int w; int h;
+};
+
+
 class PhysicsEntity : public Entity
 {
+public:
+	RigidBody rigidbody;
 
+	float X_Velocity;
+	float Y_Velocity;
 
+	void Simulate()
+	{
+
+		Y_Velocity += Gravity;
+
+		PosY += Y_Velocity;
+
+	}
 
 };
