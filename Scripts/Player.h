@@ -1,17 +1,19 @@
 #pragma once
 
+float moveSpeed = 0.1f;
+
 class Player : public PhysicsEntity
 {
 public:
 
 	void Init()
 	{
-		this->rigidbody = RigidBody{ 16, 32 };
+		rigidbody = RigidBody{ 16, 32 };
 
-		this->PosX = TileGrid::CenterX * 16;
-		this->PosY = TileGrid::CenterY * 16;
-		Camera::CameraX = this->PosX;
-		Camera::CameraY = this->PosY;
+		PosX = TileGrid::CenterX * 16;
+		PosY = TileGrid::CenterY * 16;
+		Camera::CameraX = PosX;
+		Camera::CameraY = PosY;
 	}
 
 	void Draw()
@@ -27,15 +29,14 @@ public:
 
 	void Update()
 	{
-		this->Simulate();
+		Simulate();
 
-		if (Input::Keys[SDLK_w].IsPressed) { this->PosY -= 1; }
-		if (Input::Keys[SDLK_a].IsPressed) { this->PosX -= 1; }
-		if (Input::Keys[SDLK_s].IsPressed) { this->PosY += 1; }
-		if (Input::Keys[SDLK_d].IsPressed) { this->PosX += 1; }
+		if (Input::Keys[SDLK_w].IsPressed && Y_Velocity == 0) { Y_Velocity -= 0.4f; }
+		if (Input::Keys[SDLK_a].IsPressed) { Move(-moveSpeed, 0); }
+		if (Input::Keys[SDLK_d].IsPressed) { Move(moveSpeed, 0);; }
 
-		Camera::CameraX = this->PosX;
-		Camera::CameraY = this->PosY;
+		Camera::CameraX = PosX;
+		Camera::CameraY = PosY;
 
 	}
 };

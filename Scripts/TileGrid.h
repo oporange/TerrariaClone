@@ -27,16 +27,19 @@ namespace TileGrid
 
 	std::pair<int, int> PixelToTile(int x, int y)
 	{
-		int CentreX = WindowWidth / 2; // centre of tilegrid in pixels
-		int CentreY = WindowHeight / 2; // centre of tilegrid in pixels
 
-		int worldX = Camera::CameraX + (x - CentreX);
-		int worldY = Camera::CameraY + (y - CentreY);
-
-		int tileX = worldX / 16;
-		int tileY = worldY / 16;
+		int tileX = floor(x / 16);
+		int tileY = floor(y / 16);
 
 		return { tileX, tileY };
+	}
+
+	std::pair<int, int> ScreenToTile(int x, int y)
+	{
+		float worldX = Camera::CameraX + (x - WindowWidth / 2);
+		float worldY = Camera::CameraY + (y - WindowHeight / 2);
+
+		return PixelToTile(worldX, worldY);
 	}
 
 }

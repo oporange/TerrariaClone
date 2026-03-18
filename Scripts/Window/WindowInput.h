@@ -60,7 +60,7 @@ namespace Input {
 			SDL_GetMouseState(&x, &y);
 
 
-			std::pair<int, int> pos = TileGrid::PixelToTile(x, y);
+			std::pair<int, int> pos = TileGrid::ScreenToTile(x, y);
 			TileInteractions::BreakTile(pos.first, pos.second);
 		}
 
