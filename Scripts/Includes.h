@@ -10,6 +10,7 @@
 #include "Textures/TextureManager.h"
 
 #include "TileGrid.h"
+#include "TilePresets.h"
 #include "Lighting.h"
 #include "WorldGen.h"
 #include "GameDraw.h"

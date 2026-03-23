@@ -142,6 +142,7 @@
     <ClInclude Include="Scripts\Textures\TextureManager.h" />
     <ClInclude Include="Scripts\TileGrid.h" />
     <ClInclude Include="Scripts\TileInteractions.h" />
+    <ClInclude Include="Scripts\TilePresets.h" />
     <ClInclude Include="Scripts\Window\WindowInput.h" />
     <ClInclude Include="Scripts\Window\WindowManager.h" />
     <ClInclude Include="Scripts\WorldGen.h" />

@@ -74,6 +74,15 @@
     <ClInclude Include="Scripts\TileInteractions.h">
       <Filter>Header Files\Game\Tiles</Filter>
     </ClInclude>
+    <ClInclude Include="Scripts\Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\TilePresets.h">
+      <Filter>Header Files\Game\Tiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Textures\Tiles\Dirt.bmp">
